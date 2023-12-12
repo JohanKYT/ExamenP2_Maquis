@@ -21,5 +21,30 @@ void inicializarDatos(char nombre[m][MAX_LONGITUD_NOMBRE], int ingresos[m][n], i
 }
 
 
+// Función para imprimir el detalle de ingresos y egresos de cada insumo por mes
+void imprimirDetalle(char nombre[m][MAX_LONGITUD_NOMBRE], int ingresos[m][n], int egresos[m][n]) {
+    for (int i = 0; i < m; i++) {
+        printf("Insumo %d (%s):\n", i + 1, nombre[i]);
+        for (int j = 0; j < n; j++) {
+            printf("  Mes %d - Ingresos: %d, Egresos: %d\n", j + 1, ingresos[i][j], egresos[i][j]);
+        }
+        printf("\n");
+    }
+}
+void obtenerTotales(char nombre[m][MAX_LONGITUD_NOMBRE], int egresos[m][n], int ingresos[m][n]) {
+    for (int i = 0; i < m; i++) {
+        int totalIngresos = 0;
+        int totalEgresos = 0;
+
+        for (int j = 0; j < n; j++) {
+            totalIngresos += ingresos[i][j];
+            totalEgresos += egresos[i][j];
+        }
+
+        printf("Insumo %d (%s) - Total Ingresos: %d, Total Egresos: %d\n", i + 1, nombre[i], totalIngresos, totalEgresos);
+    }
+}
+
+
 
 
