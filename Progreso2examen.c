@@ -45,6 +45,40 @@ void obtenerTotales(char nombre[m][MAX_LONGITUD_NOMBRE], int egresos[m][n], int 
     }
 }
 
+int main() {
+
+    srand(time(NULL));
+    int ingresos[m][n], egresos[m][n];
+    char nombre[m][MAX_LONGITUD_NOMBRE];
+    inicializarDatos(nombre, ingresos, egresos);
+
+    int opcion;
+
+    do {
+        printf("\nMenu:\n");
+        printf("1) Imprimir detalle de ingresos y egresos por mes y por insumo\n");
+        printf("2) Obtener total de ingresos y egresos en 12 meses por cada insumo\n");
+        printf("0) Salir\n");
+        printf("Seleccione una opcion: ");
+        scanf("%d", &opcion);
+
+        switch (opcion) {
+            case 1:
+                imprimirDetalle(nombre, ingresos, egresos);
+                break;
+            case 2:
+                obtenerTotales(nombre, ingresos, egresos);
+                break;
+            case 0:
+                printf("Saliendo del programa...\n");
+                break;
+            default:
+                printf("Opción no válida. Intente de nuevo.\n");
+        }
+    } while (opcion != 0);
+
+    return 0;
+}
 
 
 
